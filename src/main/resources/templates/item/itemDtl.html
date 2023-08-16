@@ -4,8 +4,8 @@
       layout:decorate="~{layouts/layout1}">
 
 <head>
-    <meta name="_csrf" th:content="${_csrf.token}"/>
-    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!--<meta name="_csrf" th:content="${_csrf.token}"/>-->
+    <!--<meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
 </head>
 
 <!-- 사용자 스크립트 추가 -->
@@ -28,8 +28,8 @@
         }
 
         function order(){
-            var token = $("meta[name='_csrf']").attr("content");
-            var header = $("meta[name='_csrf_header']").attr("content");
+            // var token = $("meta[name='_csrf']").attr("content");
+            // var header = $("meta[name='_csrf_header']").attr("content");
 
             var url = "/order";
             var paramData = {
@@ -44,10 +44,10 @@
                 type     : "POST",
                 contentType : "application/json",
                 data     : param,
-                beforeSend : function(xhr){
+                //beforeSend : function(xhr){
                     /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
-                    xhr.setRequestHeader(header, token);
-                },
+                //    xhr.setRequestHeader(header, token);
+                //},
                 dataType : "json",
                 cache   : false,
                 success  : function(result, status){
@@ -68,8 +68,8 @@
         }
 
         function addCart(){
-            var token = $("meta[name='_csrf']").attr("content");
-            var header = $("meta[name='_csrf_header']").attr("content");
+            // var token = $("meta[name='_csrf']").attr("content");
+            // var header = $("meta[name='_csrf_header']").attr("content");
 
             var url = "/cart";
             var paramData = {
@@ -84,10 +84,10 @@
                 type     : "POST",
                 contentType : "application/json",
                 data     : param,
-                beforeSend : function(xhr){
+                // beforeSend : function(xhr){
                     /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
-                    xhr.setRequestHeader(header, token);
-                },
+                    // xhr.setRequestHeader(header, token);
+                // },
                 dataType : "json",
                 cache   : false,
                 success  : function(result, status){
